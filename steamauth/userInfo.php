@@ -18,8 +18,8 @@ if (empty($_SESSION['steam_uptodate']) or empty($_SESSION['steam_personaname']))
 	   } else {
 		   $_SESSION['steam_realname'] = "Real name not given";
 	}
-	$_SESSION['steam_primaryclanid'] = $content['response']['players'][0]['primaryclanid'];
-	$_SESSION['steam_timecreated'] = $content['response']['players'][0]['timecreated'];
+	$_SESSION['steam_primaryclanid'] = @$content['response']['players'][0]['primaryclanid'] || null;
+	$_SESSION['steam_timecreated'] = @$content['response']['players'][0]['timecreated'] || 0;
 	$_SESSION['steam_uptodate'] = time();
 }
 
